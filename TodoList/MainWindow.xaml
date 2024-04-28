@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TodoList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" SizeToContent="WidthAndHeight" d:DesignHeight="178.356" d:DesignWidth="193.586">
+    <StackPanel>
+        <Label Content="TodoList" FontSize="24"/>
+        <GroupBox>
+            <StackPanel>
+            <TextBox x:Name="TekstInput"/>
+                <Button Content="Verzenden"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Lijst">
+            
+        </GroupBox>
+    </StackPanel>
 </Window>
