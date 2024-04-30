@@ -11,11 +11,13 @@
         <GroupBox>
             <StackPanel>
             <TextBox x:Name="TekstInput"/>
-                <Button Content="Verzenden"/>
+                <Button Content="Verzenden" Click="Button_Click"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Lijst">
-            
+            <StackPanel x:Name="lijst">
+                
+            </StackPanel>
         </GroupBox>
     </StackPanel>
 </Window>

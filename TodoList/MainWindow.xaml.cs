@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.Json;
 
 namespace TodoList
 {
@@ -19,6 +20,14 @@ namespace TodoList
         public MainWindow()
         {
             InitializeComponent();
+        }
+            string filePath = @"C:\Users\fgoub\source\repos\Fabrice_Gouba_OOPProject\TodoList";
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Label newTask = new Label();
+            newTask.Content = TekstInput.Text;
+            lijst.Children.Add(newTask);
         }
     }
 }
