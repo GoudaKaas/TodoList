@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.Json;
+using System.IO;
+using TodoList;
 
 namespace TodoList
 {
@@ -20,14 +22,21 @@ namespace TodoList
         public MainWindow()
         {
             InitializeComponent();
+            StreamReader sr = new StreamReader(filePath);
         }
-            string filePath = @"C:\Users\fgoub\source\repos\Fabrice_Gouba_OOPProject\TodoList";
-
+            string filePath = @"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt";
+            bestandSchrijver schrijver = new bestandSchrijver();
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Label newTask = new Label();
-            newTask.Content = TekstInput.Text;
-            lijst.Children.Add(newTask);
+            try
+            {
+              string taak = TekstInput.Text;
+              bestandSchrijver.writeTo(taak, filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n Couldn't find the file :(");
+            }
         }
     }
 }
