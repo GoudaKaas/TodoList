@@ -11,23 +11,19 @@ namespace TodoList
     class bestandSchrijver
     {
         public string taak { get; set; }
-        public string path { get; set; }
 
-        public static void writeTo(string task, string filepath)
+        public static void writeTo(string task)
         {
-           string taak  = task;
-           string path = filepath;
-           
-            StreamWriter streamWriter = new StreamWriter(path);
-            if(File.Exists(path))
+            string taak = task;
+            if (File.Exists(@"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt"))
             {
-                streamWriter.Write(taak);
-                MessageBox.Show("File has been wroten to!");
-            } else
-            {
-                MessageBox.Show("Couldn't find the file");
+                File.WriteAllText(@"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt", taak);
+                MessageBox.Show("Text has been written to the corresponding file!");
+            } else {
+                Console.WriteLine("This file does not exist");
+                MessageBox.Show("File does not exist");
             }
-           streamWriter.Close();
         }
+
     }
 }

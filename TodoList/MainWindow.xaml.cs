@@ -22,21 +22,19 @@ namespace TodoList
         public MainWindow()
         {
             InitializeComponent();
-            StreamReader sr = new StreamReader(filePath);
-        }
-            string filePath = @"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt";
             bestandSchrijver schrijver = new bestandSchrijver();
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-              string taak = TekstInput.Text;
-              bestandSchrijver.writeTo(taak, filePath);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\n Couldn't find the file :(");
+        }
+        private void Button_Click(object sender, RoutedEventArgs e) {
+                try
+                {
+                    string taak = TekstInput.Text;
+                    bestandSchrijver.writeTo(taak);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "\n Couldn't find the file :(");
+                }
             }
         }
     }
-}
