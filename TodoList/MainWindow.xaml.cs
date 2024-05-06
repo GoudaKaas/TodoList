@@ -24,6 +24,7 @@ namespace TodoList
             InitializeComponent();
             bestandSchrijver schrijver = new bestandSchrijver();
         }
+            string filePath = @"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt";
         private void Button_Click(object sender, RoutedEventArgs e) {
                 try
                 {
@@ -36,5 +37,17 @@ namespace TodoList
                     MessageBox.Show(ex.Message + "\n Couldn't find the file :(");
                 }
             }
+
+        private void LeesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               bestandSchrijver.readFrom(TekstInput.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n Dit is niet gelukt");
+            }
         }
+    }
     }

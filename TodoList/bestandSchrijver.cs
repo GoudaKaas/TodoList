@@ -15,15 +15,41 @@ namespace TodoList
         public static void writeTo(string task)
         {
             string taak = task;
-            if (File.Exists(@"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt"))
+            string filePath = @"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt";
+
+            try
             {
-                File.WriteAllText(@"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt", taak);
+                using (StreamWriter writer = File.AppendText(filePath))
+                {
+                    writer.WriteLine(taak);
+                }
                 MessageBox.Show("Text has been written to the corresponding file!");
-            } else {
-                Console.WriteLine("This file does not exist");
-                MessageBox.Show("File does not exist");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error writing to file: " + ex.Message);
+                MessageBox.Show("Error writing to file: " + ex.Message);
+            }
+        }
+        public static void readFrom(string task)
+        {
+            string filePath = @"C:\Users\fgoub\OneDrive\Bureaublad\taak\taken.txt";
+            string taak = task;
+            using(StreamReader sr =  new StreamReader(filePath))
+            {
+                string[] lines = sr.ReadToEnd().Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string line in lines)
+                {
+                  if(line.CompareTo(taak) == 0)
+                    {
+                        MessageBox.Show(line);
+                        break;
+                    }
+                }
+                sr.Close();
             }
         }
 
     }
-}
+
+    }

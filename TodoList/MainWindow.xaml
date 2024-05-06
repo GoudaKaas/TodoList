@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TodoList"
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight" d:DesignHeight="178.356" d:DesignWidth="193.586">
+        Title="MainWindow" SizeToContent="Height"  MaxWidth="400">
     <StackPanel>
         <Label Content="TodoList" FontSize="24"/>
         <GroupBox>
             <StackPanel>
             <TextBox x:Name="TekstInput"/>
+                
                 <Button Content="Verzenden" Click="Button_Click"/>
+                <Button x:Name="LeesBtn" Content="Lezen" Click="LeesBtn_Click"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Lijst">
